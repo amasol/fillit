@@ -1,48 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amasol <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/25 17:31:32 by amasol            #+#    #+#             */
-/*   Updated: 2017/12/25 17:39:53 by amasol           ###   ########.fr       */
+/*   Created: 2017/11/17 08:51:22 by amasol            #+#    #+#             */
+/*   Updated: 2017/11/17 09:17:48 by amasol           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include "stdio.h"
 
-/*
-int		main(int argc, char **argv)
+void	*ft_memalloc(size_t size)
 {
-	static char str[] = "...#\n...#";
-	if (argc != 2)
-	{
-		ft_putstr("There must be one parameter!\n");
-		exit(1);
-	}
-	qwert(&str);
-	return (0);
+	void	*mem;
+
+	mem = malloc(size);
+	if (mem == NULL)
+		return (NULL);
+	ft_bzero(mem, size);
+	return (mem);
 }
-*/
-
-int		main()
-{
-	// if (argc != 2)
-	// {
-	// 	ft_putstr("There must be one parameter!\n");
-	// 	exit(1);
-	// }
-	open(str);
-	return (0);
-}
-
-
-
-
-
-
-
-
-

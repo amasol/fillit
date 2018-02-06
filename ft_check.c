@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-void	ft_check_symbols(char const *i)
+void	ft_check_symbols(char const *i) //функция которая выводит толкько #, \n, (.)
 {
 	while (*i)
 	{

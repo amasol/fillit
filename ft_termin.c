@@ -6,14 +6,16 @@
 /*   By: amasol <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 18:00:59 by amasol            #+#    #+#             */
-/*   Updated: 2017/12/25 16:47:30 by amasol           ###   ########.fr       */
+/*   Updated: 2018/01/06 12:48:54 by amasol           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 //#include <stdio.h>
+//
+//функции по валидациии терминок
 
-static void		ft_check_one(char *s) // проверка на валидность тетрм и \n
+static void		ft_check_one(char *s) // проверка на валидность \n..не больше одного пробела после тетрм
 {
 	int i;
 
@@ -31,29 +33,45 @@ static void		ft_check_one(char *s) // проверка на валидность
 
 static void		ft_check_two(char *s) // проверка на количество символов в тетриминке
 {
-	int	tochka;
-	int rechetka;
+	int rechetk;
+	int tochk;
 	int n;
 
-//	printf("%s\n", s);
-	tochka = 0;
-	rechetka = 0;
+	rechetk = 0;
+	tochk = 0;
 	n = 0;
 	while (*s != '\0')
 	{
-		if (*s == '.')
-			tochka++;
-		else if (*s == '#')
-			rechetka++;
+		if (*s == '#')
+			rechetk++;
+		else if (*s == '.')
+			tochk++;
 		else if (*s == '\n')
 			n++;
 		s++;
 	}
-//	printf("Tochka %d, Rewetka %d, N %d \n", tochka, rechetka, n);
-	if (tochka != 12 || rechetka != 4 || n != 4)
+	if (rechetk != 12 || tochk != 4 || n != 4)
 	{
 		ft_putstr("error\n");
 		exit(1);
+	}
+}
+
+static void		ft_check_three(char *s) //ф. не дает проходить болье 4 символом до \n
+{
+	int i;
+
+	i = 0;
+	while (*s != '\0' || *s != '\n')
+	{
+		if (*s == '\n' && i != 4)
+		{
+			ft_putstr("error\n");
+			exit(1);
+		}
+		else
+			i = 0;
+		s++;
 	}
 }
 
@@ -65,8 +83,8 @@ void	ft_termin(char **str)
 	while (str[i])
 	{
 		ft_check_one(str[i]);
-		ft_check_two(str[i]);
+//		ft_check_two(str[i]);
+//		ft_check_three(str[i]);
 		i++;
 	}
 }
-

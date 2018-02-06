@@ -1,48 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amasol <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/25 17:31:32 by amasol            #+#    #+#             */
-/*   Updated: 2017/12/25 17:39:53 by amasol           ###   ########.fr       */
+/*   Created: 2017/11/06 16:32:29 by amasol            #+#    #+#             */
+/*   Updated: 2017/11/06 16:32:32 by amasol           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include "stdio.h"
 
-/*
-int		main(int argc, char **argv)
+void	ft_bzero(void *s, size_t n)
 {
-	static char str[] = "...#\n...#";
-	if (argc != 2)
+	size_t i;
+
+	i = 0;
+	if (i < n)
 	{
-		ft_putstr("There must be one parameter!\n");
-		exit(1);
+		((char *)s)[i] = '\0';
+		i++;
 	}
-	qwert(&str);
-	return (0);
 }
-*/
-
-int		main()
-{
-	// if (argc != 2)
-	// {
-	// 	ft_putstr("There must be one parameter!\n");
-	// 	exit(1);
-	// }
-	open(str);
-	return (0);
-}
-
-
-
-
-
-
-
-
-
