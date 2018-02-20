@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amasol <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/17 08:51:22 by amasol            #+#    #+#             */
-/*   Updated: 2017/11/17 09:17:48 by amasol           ###   ########.fr       */
+/*   Created: 2017/11/26 13:00:27 by amasol            #+#    #+#             */
+/*   Updated: 2017/11/26 18:04:21 by amasol           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-void	*ft_memalloc(size_t size)
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	void	*mem;
-
-	mem = malloc(size);
-	if (mem == NULL)
-		return (NULL);
-	ft_bzero(mem, size);
-	return (mem);
+	if (lst && f)
+	{
+		while (lst)
+		{
+			f(lst);
+			lst = lst->next;
+		}
+	}
 }

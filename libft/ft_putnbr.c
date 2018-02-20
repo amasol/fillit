@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amasol <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/25 16:40:21 by amasol            #+#    #+#             */
-/*   Updated: 2017/12/25 16:41:13 by amasol           ###   ########.fr       */
+/*   Created: 2017/11/06 20:37:20 by amasol            #+#    #+#             */
+/*   Updated: 2017/11/20 14:27:21 by amasol           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#	ifndef FILLIT_H
-#	define FILLIT_H
-
-#include <stdio.h>
-#include <fcntl.h>
-#include <sys/stat.h>
-#include <sys/types.h>
 #include "libft.h"
 
-/*typedef struct s_list
+void	ft_putnbr(int nb)
 {
-}*/
-
-int 	g_x[26][4];
-int 	g_y[26][4];
-int		g_point;
-char	g_buff[22];
-
-//int		mine_read(char **av);
-int		valid(char *str);
-void	naxojdenie(char *str, int k);
-void	podst(char *str, int k);
-char	**karta(int k);
-
-#	endif
+	if (nb == -2147483648)
+	{
+		ft_putstr("-2147483648");
+		return ;
+	}
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb *= -1;
+	}
+	if (nb > 9)
+	{
+		ft_putnbr(nb / 10);
+		ft_putchar((nb % 10) + '0');
+	}
+	if (nb < 10)
+		ft_putchar(nb + '0');
+}

@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amasol <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/25 16:40:21 by amasol            #+#    #+#             */
-/*   Updated: 2017/12/25 16:41:13 by amasol           ###   ########.fr       */
+/*   Created: 2017/11/02 14:23:42 by amasol            #+#    #+#             */
+/*   Updated: 2017/11/11 17:41:54 by amasol           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#	ifndef FILLIT_H
-#	define FILLIT_H
-
-#include <stdio.h>
-#include <fcntl.h>
-#include <sys/stat.h>
-#include <sys/types.h>
 #include "libft.h"
 
-/*typedef struct s_list
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-}*/
+	size_t i;
+	size_t k;
 
-int 	g_x[26][4];
-int 	g_y[26][4];
-int		g_point;
-char	g_buff[22];
-
-//int		mine_read(char **av);
-int		valid(char *str);
-void	naxojdenie(char *str, int k);
-void	podst(char *str, int k);
-char	**karta(int k);
-
-#	endif
+	i = -1;
+	k = ft_strlen(s1);
+	while (s2[++i] && (i < n))
+	{
+		s1[k + i] = s2[i];
+	}
+	s1[k + i] = '\0';
+	return (s1);
+}

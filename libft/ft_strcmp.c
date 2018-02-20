@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amasol <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/25 16:40:21 by amasol            #+#    #+#             */
-/*   Updated: 2017/12/25 16:41:13 by amasol           ###   ########.fr       */
+/*   Created: 2017/10/30 17:30:07 by amasol            #+#    #+#             */
+/*   Updated: 2017/11/15 20:25:42 by amasol           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#	ifndef FILLIT_H
-#	define FILLIT_H
-
-#include <stdio.h>
-#include <fcntl.h>
-#include <sys/stat.h>
-#include <sys/types.h>
 #include "libft.h"
 
-/*typedef struct s_list
+int		ft_strcmp(const char *s1, const char *s2)
 {
-}*/
+	unsigned char	*ds;
+	unsigned char	*st;
+	int				i;
 
-int 	g_x[26][4];
-int 	g_y[26][4];
-int		g_point;
-char	g_buff[22];
-
-//int		mine_read(char **av);
-int		valid(char *str);
-void	naxojdenie(char *str, int k);
-void	podst(char *str, int k);
-char	**karta(int k);
-
-#	endif
+	i = 0;
+	ds = (unsigned char *)s1;
+	st = (unsigned char *)s2;
+	while ((ds[i] == st[i]) && ds[i] != '\0' && st[i] != '\0')
+	{
+		i++;
+	}
+	return (ds[i] - st[i]);
+}

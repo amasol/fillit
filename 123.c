@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   123.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amasol <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/25 16:40:21 by amasol            #+#    #+#             */
-/*   Updated: 2017/12/25 16:41:13 by amasol           ###   ########.fr       */
+/*   Created: 2018/02/11 13:52:34 by amasol            #+#    #+#             */
+/*   Updated: 2018/02/11 13:52:35 by amasol           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#	ifndef FILLIT_H
-#	define FILLIT_H
-
+#include <unistd.h>
 #include <stdio.h>
-#include <fcntl.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-#include "libft.h"
 
-/*typedef struct s_list
+/*char		*stroca(char *str, int c, size_t n)
 {
-}*/
+	size_t	i;
 
-int 	g_x[26][4];
-int 	g_y[26][4];
-int		g_point;
-char	g_buff[22];
+	i = 0;
+	while (i < n)
+	{
+		str[i] = c;
+		i++;
+	}
+	return (str);
+}
 
-//int		mine_read(char **av);
-int		valid(char *str);
-void	naxojdenie(char *str, int k);
-void	podst(char *str, int k);
-char	**karta(int k);
 
-#	endif
+int		main()
+{
+	int i = 0;
+	size_t j = 0;
+	char str[] = "............####";
+
+	 printf("%s\n", stroca(str, i, j));
+	return (0);
+}
+
+*/

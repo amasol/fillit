@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amasol <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/25 16:40:21 by amasol            #+#    #+#             */
-/*   Updated: 2017/12/25 16:41:13 by amasol           ###   ########.fr       */
+/*   Created: 2017/11/16 17:01:01 by amasol            #+#    #+#             */
+/*   Updated: 2017/11/16 17:01:03 by amasol           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#	ifndef FILLIT_H
-#	define FILLIT_H
-
-#include <stdio.h>
-#include <fcntl.h>
-#include <sys/stat.h>
-#include <sys/types.h>
 #include "libft.h"
 
-/*typedef struct s_list
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-}*/
+	char			*str;
+	unsigned int	i;
 
-int 	g_x[26][4];
-int 	g_y[26][4];
-int		g_point;
-char	g_buff[22];
-
-//int		mine_read(char **av);
-int		valid(char *str);
-void	naxojdenie(char *str, int k);
-void	podst(char *str, int k);
-char	**karta(int k);
-
-#	endif
+	i = 0;
+	if (s != NULL && f != NULL)
+	{
+		str = malloc(sizeof(char) * ft_strlen(s) + 1);
+		if (str == NULL)
+			return (NULL);
+		while (s[i] != 0)
+		{
+			str[i] = f(i, s[i]);
+			i++;
+		}
+		str[i] = '\0';
+		return (str);
+	}
+	return (0);
+}

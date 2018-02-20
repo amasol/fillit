@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amasol <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/25 16:40:21 by amasol            #+#    #+#             */
-/*   Updated: 2017/12/25 16:41:13 by amasol           ###   ########.fr       */
+/*   Created: 2017/11/02 12:49:19 by amasol            #+#    #+#             */
+/*   Updated: 2017/11/26 19:24:25 by amasol           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#	ifndef FILLIT_H
-#	define FILLIT_H
-
-#include <stdio.h>
-#include <fcntl.h>
-#include <sys/stat.h>
-#include <sys/types.h>
 #include "libft.h"
 
-/*typedef struct s_list
+size_t	ft_strlcat(char *dst, const char *src, size_t len)
 {
-}*/
+	size_t i;
+	size_t dst_end;
+	size_t j;
 
-int 	g_x[26][4];
-int 	g_y[26][4];
-int		g_point;
-char	g_buff[22];
-
-//int		mine_read(char **av);
-int		valid(char *str);
-void	naxojdenie(char *str, int k);
-void	podst(char *str, int k);
-char	**karta(int k);
-
-#	endif
+	i = 0;
+	j = ft_strlen(src);
+	if (!len)
+		return (j);
+	while (dst[i] && (i < len))
+		i++;
+	dst_end = i;
+	while (src[i - dst_end] && i < len - 1)
+	{
+		dst[i] = src[i - dst_end];
+		i++;
+	}
+	if (dst_end < len)
+		dst[i] = '\0';
+	return (dst_end + j);
+}

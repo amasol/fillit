@@ -1,48 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amasol <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/25 17:31:32 by amasol            #+#    #+#             */
-/*   Updated: 2017/12/25 17:39:53 by amasol           ###   ########.fr       */
+/*   Created: 2017/11/26 12:59:58 by amasol            #+#    #+#             */
+/*   Updated: 2017/11/26 12:59:59 by amasol           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include "stdio.h"
+#include "libft.h"
 
-/*
-int		main(int argc, char **argv)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	static char str[] = "...#\n...#";
-	if (argc != 2)
-	{
-		ft_putstr("There must be one parameter!\n");
-		exit(1);
-	}
-	qwert(&str);
-	return (0);
+	if (!alst && !new)
+		return ;
+	new->next = *alst;
+	*alst = new;
+	return ;
 }
-*/
-
-int		main()
-{
-	// if (argc != 2)
-	// {
-	// 	ft_putstr("There must be one parameter!\n");
-	// 	exit(1);
-	// }
-	open(str);
-	return (0);
-}
-
-
-
-
-
-
-
-
-

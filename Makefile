@@ -13,7 +13,7 @@
 NAME = fillit
 CC = gcc
 FLAG = -Wall -Wextra -Werror
-SRS = ft_check.c ft_termin.c ft_putstr.c ft_putchar.c main.c
+SRS = ft_bzero.c ft_putstr.c ft_putchar.c main.c
 OBJ = $(SRS:.c=.o)
 HEADER = .fillit.h
 

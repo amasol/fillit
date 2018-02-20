@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amasol <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/25 16:40:21 by amasol            #+#    #+#             */
-/*   Updated: 2017/12/25 16:41:13 by amasol           ###   ########.fr       */
+/*   Created: 2017/11/02 20:05:17 by amasol            #+#    #+#             */
+/*   Updated: 2017/11/13 19:47:42 by amasol           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#	ifndef FILLIT_H
-#	define FILLIT_H
-
-#include <stdio.h>
-#include <fcntl.h>
-#include <sys/stat.h>
-#include <sys/types.h>
 #include "libft.h"
 
-/*typedef struct s_list
+char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 {
-}*/
+	size_t i;
+	size_t k;
 
-int 	g_x[26][4];
-int 	g_y[26][4];
-int		g_point;
-char	g_buff[22];
-
-//int		mine_read(char **av);
-int		valid(char *str);
-void	naxojdenie(char *str, int k);
-void	podst(char *str, int k);
-char	**karta(int k);
-
-#	endif
+	i = 0;
+	k = 0;
+	if (s2[i] == '\0')
+		return ((char *)s1);
+	while (s1[i] != '\0' && i < len)
+	{
+		while (s1[i + k] && (i + k) < len && s1[i + k] == s2[k])
+			k++;
+		if (s2[k] == '\0')
+			return ((char *)&s1[i]);
+		i++;
+	}
+	return (NULL);
+}

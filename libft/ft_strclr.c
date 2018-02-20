@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amasol <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/06 19:48:53 by amasol            #+#    #+#             */
-/*   Updated: 2017/11/15 20:25:08 by amasol           ###   ########.fr       */
+/*   Created: 2017/11/09 17:05:51 by amasol            #+#    #+#             */
+/*   Updated: 2017/11/09 17:05:54 by amasol           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-void	ft_putstr(char const *str)
+void	ft_strclr(char *s)
 {
-	if (str)
-	{
-		while (*str != '\0')
-		{
-			ft_putchar(*str);
-			str++;
-		}
-	}
+	if (s)
+		ft_bzero(s, ft_strlen(s));
 }
